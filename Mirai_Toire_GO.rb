@@ -102,25 +102,25 @@ end
 #//////////////////////////////////////////////////////////////////////////////////////////////////
 
 def body_function  
-  puts "Please leave a desposit..."
+  puts "You have the urge to go to the toilet. What do you do"
   print "> "
   body_function = gets.chomp #local variable
-  moves = 0
+  #moves = 0
 
 if ['wee', 'pee', 'piss', 'slash', 'tinkle', 'piddle', 'urinate', 'wee-wee', 'pee-pee', '1'].any? { |word| body_function.downcase.include?(word) } # => true
     puts "You unzip you pants and pee into the bowl. At first it seems awkward, but eventually you manage to do what you need to do"
-    moves = 3
+    #moves = 3
   
-elsif ['poo', 'poop', 'crap', 'defecation', 'excretion', 'dung', 'discharge', 'shit', 'turd', 'bog', '2'].any? { |word| body_function.downcase.include?(word) } # => true
-    puts "Dropping your pants you place your bottom on the toilet seat. It's not long until you do what you needed to do"
-    moves = 5
+elsif ['poo', 'poop', 'crap', 'defecation', 'excretion', 'dung', 'discharge', 'shit', 'turd', 'bog', '2', 'log'].any? { |word| body_function.downcase.include?(word) } # => true
+    puts "Dropping your pants you place your bottom on the toilet seat. You drop a bog log into the swimming pool of poop"
+    #moves = 5
   
 elsif ['fart', 'fluff', 'puff', 'let rip'].any? { |word| body_function.downcase.include?(word) } # => true
-    puts 'You sit on the toilet seat and let it rip. A little puff of the arse trumpet is all you can give.'
-    moves = 1
+    puts 'You sit on the toilet seat and let it rip. A little puff from the arse trumpet is all you can give.'
+    #moves = 1
     
 else
-    puts "You need to make a desposit. The Mirai_Toire_Go v2.5 needs lower body increment to function"
+    puts "It seems that you don't need to go now. Maybe some fresh air would be nice."
     body_function
   end
 end
@@ -128,54 +128,54 @@ end
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////TIME TRAVEL METHOD///////////////////////////////////////////////////////////////////
 
-def time_travel(dest)
-    puts "The toilet starts to make noises. A symphony of gears turning, clicks and whistles fill your ear drums"
-    puts "Your vision starts to gets blurry and you pass out"
-    puts "You have arrived in #{dest}"
+# def time_travel(dest)
+#     puts "The toilet starts to make noises. A symphony of gears turning, clicks and whistles fill your ear drums"
+#     puts "Your vision starts to gets blurry and you pass out"
+#     puts "You have arrived in #{dest}"
     
-    # p dest.class #shows as a string
+#     # p dest.class #shows as a string
 
-    if ['Australia', 'Melbourne', 'Sydney', 'Tasmania', 'Perth', 'Goldcoast'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        puts "CHECK"
-        File.open("./Australia/Australia.txt").each do |line|
-        puts line 
-    end
-    end
+#     if ['Australia', 'Melbourne', 'Sydney', 'Tasmania', 'Perth', 'Goldcoast'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+#         puts "CHECK"
+#         File.open("./Australia/Australia.txt").each do |line|
+#         puts line 
+#     end
+#     end
     
-    if ['Hell'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("./Hell/Hell.txt").each do |line|
-        puts line
-    end
-    end
+#     if ['Hell'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+#         File.open("./Hell/Hell.txt").each do |line|
+#         puts line
+#     end
+#     end
 
-    if ['Japan', 'Kyoto', 'Osaka', 'Tokyo'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("./Japan/Japan.txt").each do |line|
-        puts line
-        #japan
-    end
-    end
+#     if ['Japan', 'Kyoto', 'Osaka', 'Tokyo'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+#         File.open("./Japan/Japan.txt").each do |line|
+#         puts line
+#         #japan
+#     end
+#     end
 
-    if ['Titanic', 'Ship'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("./Titanic/Titanic.txt").each do |line|
-        puts line
-    end
-    end
+#     if ['Titanic', 'Ship'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+#         File.open("./Titanic/Titanic.txt").each do |line|
+#         puts line
+#     end
+#     end
 
-    if ['West Germany', 'Germany', 'World War 2'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-      File.open("./Titanic/Titanic.txt").each do |line|
-      puts line
-      end
-    end
+#     if ['West Germany', 'Germany', 'World War 2'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+#       File.open("./Titanic/Titanic.txt").each do |line|
+#       puts line
+#       end
+#     end
 
-    if ['Middle East', 'Jerusalem'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-      File.open("./Jerusalem.txt").each do |line|
-      puts line
-      end
-    end
+#     if ['Middle East', 'Jerusalem'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+#       File.open("./Jerusalem.txt").each do |line|
+#       puts line
+#       end
+#     end
 
-return
+# return
 
-end
+# end
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -196,25 +196,29 @@ File.open("start_p2.txt").each do |line|
 #/////////////////////////////////////////////////////////////////////////////////////////////////
 #///////////////STORY ONE////////////////////////////////////////////////////////////////////////
 
-inventory = Array[]
-
-puts 'wake up in cell'
-puts 'you see the following objects'
+def act_one_block_one
+puts '///////////////////////////act one//the scared princess//////////////////////'
+puts 'wake up in cell, there is a girl there that wants to be saved'
+puts 'you see the following objects - small wire.'
 puts 'what do you want to do'
 
 #look at import random
 #look at importing time
 
-
 choice = gets.chomp #local variable
-item = "lockpick"
+item = "wire"
 
+inventory = Array[]
 choice_combo = Array[]
 
-    if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand'].any? { |word| choice.downcase.include?(word) } # => true
+    if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
+      # => true
         puts "You have picked up the #{item}"
-        item.insert(0, item)
-    elsif ['examine','look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
+        inventory.insert(0, item)
+        inventory
+    end
+
+    if ['examine','look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
         puts '2'
     elsif ['look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
         puts '3'
@@ -235,12 +239,29 @@ choice_combo = Array[]
   end
 
 
+end
 
 
 
+act_one_block_one
+
+#////////////////Once block one condition is satified, the player will get to block two
+
+#block two is doing something with the wire
+#use wire on necklance to dangle in front of guard
 
 
+#////////////////////once block two is satified, then 
 
+#use wire on necklance to dangle in front of guard, he falls alseep and you can 
+
+#////////////////////
+
+#steal his keys to unlock the door
+
+
+#p inventory
+p "we are out of method"
 
 
 
