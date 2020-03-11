@@ -235,8 +235,11 @@ choice = gets.chomp #local variable
 item = "wire"
 inventory = Array[]
 choice_combo = Array[]
-#evil = nil
-#good = nil
+evil = 0
+#good = 0
+
+p evil
+p evil.class
 
 ####//////////////If the player select to collect the item then they leave this method to start block two
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
@@ -255,16 +258,17 @@ choice_combo = Array[]
 #////////////////////////////Annoy the princess////////////////////
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
-      #evil = evil + 1  
+      evil = evil + 1  
       puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
-    end
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 1 # => if looking at girl and evil stat is above 1
+p evil
+
+    elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 1 # => if looking at girl and evil stat is above 1
       #evil = evil + 2
       puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
-     end
+    
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 3 # => if looking at girl and evil stat is above 3
+    elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } #&& evil >= 3 # => if looking at girl and evil stat is above 3
       #evil = evil + 5  
       puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
       the_end
