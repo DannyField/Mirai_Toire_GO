@@ -1,6 +1,7 @@
 require 'colorize'
 require 'csv'
 require 'artii'
+require 'faker'
 
 #artii 'Mirai Toire GO'
 
@@ -17,10 +18,12 @@ a.asciify('Art!')
 #//////////////////////////////////////////////////////////////////////////////////This is the intro area
 #//////////////////////////////////////////////////////////// This opens up a text as the intro and works.
 
+def start
 File.open("start.txt").each do |line|
   puts line
 end
 
+start
 #######################################################################################################
 #///////////////FUTURE VERSION - CURRENTLY NOT SUITABLE FOR RELEASE - K.I.S.S//////////////////////////
 
@@ -206,7 +209,22 @@ while exit_flag == 0
 puts '///////////////////////////act one - the scared princess//////////////////////'
 puts 'wake up in cell, there is a girl there that wants to be saved'
 puts 'you see the following objects - small wire.'
-puts 'what do you want to do'
+#/////////////////throw the intro in another method thing/////////////
+
+puts [
+  'What would you like to do', 
+  'give it another go champ',
+  'try again', 
+  'I\'m sure you can figure something out',
+  'Go for gold!',
+  'Hang in there!',
+  'Stay strong',
+  'How much more encouragement can I offer you',
+  'Surely you would know to grab the wire',
+  'Do you need a hint?',
+  'You can do it'
+].to_a.sample.colorize(:red)
+# Above code is a random output for the player
 
 #look at import random
 #look at importing time
@@ -215,6 +233,8 @@ choice = gets.chomp #local variable
 item = "wire"
 inventory = Array[]
 choice_combo = Array[]
+evil = 0
+good = 0
 
 ####//////////////If the player select to collect the item then they leave this method to start block two
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
@@ -226,10 +246,24 @@ choice_combo = Array[]
     end
 ###////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if ['examine','look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
-      File.open("start.txt").each do |line|
-        puts line
-      end
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell'].any? { |word| choice.downcase.include?(word) }# => true
+      puts "You look around the cell. You see thick bars preventing you from getting out. A guard stands near by watching you"
+    end
+
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) }# => true
+        puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking you up and down"
+        evil = evil + 1
+    end
+
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 1 # => if looking at girl and evil stat is above 1
+      puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer"
+        evil = evil + 2
+    end
+
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 3 # => if looking at girl and evil stat is above 1
+        puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
+          evil = evil + 5
+          return the_end
     end
 
     if ['look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
@@ -240,23 +274,19 @@ choice_combo = Array[]
         puts '5'
     elsif ['climb'].any? { |word| choice.downcase.include?(word) } # => true
         puts '6'
-    elsif ['swim', 'water'].any? { |word| choice.downcase.include?(word) } # => true
+    elsif ['kick', 'water'].any? { |word| choice.downcase.include?(word) } # => true
         puts '7'
     elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
         puts '8'
     elsif ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
         puts '9'
     else
-
+      #p Faker::FunnyName.two_word_name
   end
-
 end # while loop end point
- # method end point
+
 
 end
-
-
-
 
 
 act_one_block_one
@@ -285,6 +315,32 @@ p "we are out of method"
 
 
 
+# def the_end
+# puts "this is the end of the game"
+# puts "would you like play again?"
+
+# puts "Y yes | N no"
+
+# input = gets.chomp
+  
+#   if input == "y" | "Y"
+#     start
+#   elsif input == "n" | "N"
+#     puts "Ok, formating laptop.."
+#     sleep(1)
+#     puts "."
+#     sleep(1)
+#     puts ".."
+#     sleep(1)
+#     puts "..."
+#     sleep(1)
+#     puts "Just kidding... Have a good day"
+#     return
+#   else
+#     puts "Sorry, incorrect letter"
+#   end
+
+# end
 
 
 
@@ -366,71 +422,15 @@ p "we are out of method"
 # end
 
 
-
-
-
-
-
-
-
-
-=begin
-
-
-
-
-
 # it might be good to have it exit the method. Maybe a while loop that if the player is in the toilet area, then it loops.
 # it will help with the time travelling aspect as the loop can check if see where the player is
 # It might also be a case that I can use METHOD's for within areas even. Such as calling a function within a function
 
-if toilet_choice == 'hello'
-  return room #by using return and method, I am able to escape this method and run the other method! Success!!
-else
-  return
-end
-
-
-
-
-
-
-if ['toilet', 'walk', 'run', 'crawl'].any? { |word| user.downcase.include?(word) } # => true
-  toilet #this will run the method
-  else
-  puts 'need to do something' 
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-def sun
-  puts "are you serious? Why would you want to do to the sun. It's over 1 million degrees!"
-  puts "are you sure - yes or no"
-  crazy = gets.chomp
-
-  if crazy == 'yes'
-    puts "You appeared on the sun for a fraction of a millisecond and burst into flames. you are dead"
-  else
-    puts "I'm glad you saw reason"
-  end
-end
-
-
-
-
-
-
-
+# if toilet_choice == 'hello'
+#   return room #by using return and method, I am able to escape this method and run the other method! Success!!
+# else
+#   return
+# end
 
 # Functions that sort of work.... but not perfectly
 # class Array
@@ -445,14 +445,13 @@ end
 
 #this might work too
 
-puts "yay" if [1, 2, 3].all? { |i| (1..9).include?(i) }
-# => "yay"
+# puts "yay" if [1, 2, 3].all? { |i| (1..9).include?(i) }
+# # => "yay"
 
-puts "nope" if [1, 2, 3, 'A'].any? { |i| not (1..9).include?(i) }
+# puts "nope" if [1, 2, 3, 'A'].any? { |i| not (1..9).include?(i) }
 # => "nope"
 
 # another one might be - but it requires 'set'
-
 
 # p ARGV
 # #argv will always be an array and accessable
@@ -460,5 +459,3 @@ puts "nope" if [1, 2, 3, 'A'].any? { |i| not (1..9).include?(i) }
 # if ARGV = 'god'
 #    puts "you are in god mode"
 #  end
-
-=end
