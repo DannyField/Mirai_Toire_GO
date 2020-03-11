@@ -6,7 +6,7 @@ require 'faker'
 #artii 'Mirai Toire GO'
 
 a = Artii::Base.new :font => 'slant'
-a.asciify('Art!')
+puts a.asciify('Mirai Torie GO').colorize(:yellow)
 
 #/////////////////////MIRAI_TOIRE_GO_v0.0.3/////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,16 +190,22 @@ end
 body_function
 
 File.open("start_p2.txt").each do |line|
-    puts line
+    puts line #this is the head spin fainting section
   end
 
+
+
 #possibly put music or a text here
+#music
+
 
 #time_travel(dest)
 
 #/////////////////////////////////////////////////////////////////////////////////////////////////
 #///////////////STORY ONE////////////////////////////////////////////////////////////////////////
 def act_one_block_one
+
+  puts "\e[H\e[2J" #this clears the screen
 
 #WHILE LOOP
 #This will allow us to loop the code for as long as the condition is TRUE
@@ -208,15 +214,16 @@ def act_one_block_one
   while exit_flag == 0
   puts 'still in the loop baby'
 
-puts '///////////////////////////act one - the scared princess//////////////////////'
-puts 'wake up in cell, there is a girl there that wants to be saved'
-puts 'you see the following objects - small wire.'
+puts "///////////////////////////ACT ONE/////////////////////////////////////////////////////////////////".colorize(:yellow)
+puts "You wake up in an old brick prison cell. It smells of piss and rotten fruit. As you wipe the sleep dust from your eyes you notice a figure standing in the corner. A young woman stands, dressed in old fantasy clothing. You sit up and notice the thick prison bars that block your way out. A prison guard stands watch."
+puts "///////////////////////////////////////////////////////////////////////////////////////////////////"
+puts "You see the following objects - a small piece of wire."
 #/////////////////throw the intro in another method thing/////////////
 
 puts [
   'What would you like to do', 
-  'give it another go champ',
-  'try again', 
+  'Give it another go champ',
+  'What will you do?', 
   'I\'m sure you can figure something out',
   'Go for gold!',
   'Hang in there!',
@@ -225,11 +232,10 @@ puts [
   'Surely you would know to grab the wire',
   'Do you need a hint?',
   'You can do it'
-].to_a.sample.colorize(:red)
+].to_a.sample.colorize(:green)
 # Above code is a random output for the player
 
 #look at import random
-#look at importing time
 
 choice = gets.chomp #local variable
 item = "wire"
@@ -239,7 +245,7 @@ evil = 0
 #good = 0
 
 p evil
-p evil.class
+p evil.class #shows integer
 
 ####//////////////If the player select to collect the item then they leave this method to start block two
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
@@ -277,11 +283,13 @@ p evil
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '3'
-    elsif ['sneak','ninja walk'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '4'
-    elsif ['walk', 'sprint', 'skip'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '5'
+      File.open("ActOne_attackGuard").each do |line|
+        puts line
+      end
+    elsif ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
+      File.open("ActOne_sneak").each do |line|
+        puts line
+      end
     elsif ['climb'].any? { |word| choice.downcase.include?(word) } # => true
         puts '6'
     elsif ['kick', 'water'].any? { |word| choice.downcase.include?(word) } # => true
@@ -291,13 +299,13 @@ p evil
     
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You look at the princess and build up the courage to talk to her"
-        #good = good + 2
+        good = good + 2
     end
 
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
       puts "You walk over to the bars and ask the guard for his name."
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
-      #good = good + 1
+      good = good + 1
     end
 
     end
@@ -308,12 +316,12 @@ end
 
 act_one_block_one
 
-
-
 #////////////////Once block one condition is satified, the player will get to block two
 
 #block two is doing something with the wire
 #use wire on necklance to dangle in front of guard
+
+
 
 
 #////////////////////once block two is satified, then 
@@ -331,6 +339,9 @@ p "we are out of method"
 
 
 
+
+
+#//////////////////////////ending//////////////////////////////////
 
 def the_end
 puts "this is the end of the game"
@@ -356,7 +367,6 @@ input = gets.chomp
   else
     puts "Sorry, incorrect letter"
   end
-
 end
 
 
