@@ -4,19 +4,22 @@ require 'artii'
 
 #artii 'Mirai Toire GO'
 
-#v0.0.1
+a = Artii::Base.new :font => 'slant'
+a.asciify('Art!')
 
-#This is the intro area
-# This opens up a text as the intro and works.
+#/////////////////////MIRAI_TOIRE_GO_v0.0.3/////////////////////////////////////////////////////////////
+#//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#//////////////////////////////////////////////////////////////////////////////////This is the intro area
+#//////////////////////////////////////////////////////////// This opens up a text as the intro and works.
+
 File.open("one.txt").each do |line|
   puts line
 end
 
-###########################################################################################3
-# Had to split up the methods due to local variables
-# This is the location method - asking the user where they want to go
+#######################################################################################################
+#///////////////FUTURE VERSION - CURRENTLY NOT SUITABLE FOR RELEASE - K.I.S.S//////////////////////////
 
-#FUTURE VERSION - CURRENTLY NOT SUITABLE FOR RELEASE - K.I.S.S
 # def location
 #   puts 'A female voice appears from a tiny speaker somewhere in the room'
 #   puts 'Thank you for using this device. Where and when would you like to go'.colorize(:red)
@@ -39,6 +42,7 @@ end
 # end
 
 #############################################################################################################
+#////////////////////////////////////////LOCATION METHOD/////////////////////////////////////////////////////
 
 def location
   puts 'A female voice appears from a tiny speaker somewhere in the room'
@@ -53,8 +57,10 @@ end
 
 #puts location.class # should be a string and it also returned from the method [location]
 #need to put in a condition that if the place isn't here, then puts 'that place is currently unavailable at this moment
-#//////////////////////////////////////////////////
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # This is the year method which will ask the user what time period they want to go to
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 def year
   puts "Please enter a year:"
@@ -82,41 +88,50 @@ def year
       puts "The future 2020 to 3000 and beyond!"
       return 6
     else
-    puts "Time jump is not available at this device"
+    puts "Time jump not defined. Set to random jump time"
+    return year
   end
 end  
 
-# This is the body function that will decide on what how many turns before teleporting back
+# /////////////////////////////////////////////////////////////////////////////////////////////////
+# This is the body function that will decide on what how many turns before teleporting back to home
+#//////////////////////////////////////////////////////////////////////////////////////////////////
+
 def body_function  
   puts "Please leave a desposit..."
   print "> "
   body_function = gets.chomp #local variable
-  
+  moves = 0
+
 if ['wee', 'pee', 'piss', 'slash', 'tinkle', 'piddle', 'urinate', 'wee-wee', 'pee-pee', '1'].any? { |word| body_function.downcase.include?(word) } # => true
     puts "You unzip you pants and pee into the bowl. At first it seems awkward, but eventually you manage to do what you need to do"
-    return 3
+    moves = 3
   
 elsif ['poo', 'poop', 'crap', 'defecation', 'excretion', 'dung', 'discharge', 'shit', 'turd', 'bog', '2'].any? { |word| body_function.downcase.include?(word) } # => true
     puts "Dropping your pants you place your bottom on the toilet seat. It's not long until you do what you needed to do"
-    return 5
+    moves = 5
   
 elsif ['fart', 'fluff', 'puff', 'let rip'].any? { |word| body_function.downcase.include?(word) } # => true
     puts 'You sit on the toilet seat and let it rip. A little puff of the arse trumpet is all you can give.'
-    return 1
+    moves = 1
+    
 else
     puts "You need to make a desposit. The Mirai_Toire_Go v2.5 needs lower body increment to function"
     body_function
   end
 end
 
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#////////////////////////////TIME TRAVEL METHOD///////////////////////////////////////////////////////////////////
+
 def time_travel(dest)
     puts "The toilet starts to make noises. A symphony of gears turning, clicks and whistles fill your ear drums"
     puts "Your vision starts to gets blurry and you pass out"
     puts "You have arrived in #{dest}"
     
-    p dest.class #shows as a string
+    # p dest.class #shows as a string
 
-    if ['Australia', 'Melbourne', 'Sydney', 'Tasmaia', 'Perth'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+    if ['Australia', 'Melbourne', 'Sydney', 'Tasmania', 'Perth', 'Goldcoast'].any? { |word| dest.downcase.include?(word.downcase) } # => true
         puts "CHECK"
         File.open("./Australia/Australia.txt").each do |line|
         puts line 
@@ -140,12 +155,30 @@ def time_travel(dest)
         File.open("./Titanic/Titanic.txt").each do |line|
         puts line
     end
-  end
+    end
+
+    if ['West Germany', 'Germany', 'World War 2'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+      File.open("./Titanic/Titanic.txt").each do |line|
+      puts line
+      end
+    end
+
+    if ['Middle East', 'Jerusalem'].any? { |word| dest.downcase.include?(word.downcase) } # => true
+      File.open("./Jerusalem.txt").each do |line|
+      puts line
+      end
+    end
+
+return
+
 end
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 dest = location # grabs the result from location and stores to dest
 time_jump = year # grabs the result from year that the user chose and stores to time_jump
 body_function
+p moves
 
 time_travel(dest)
 
