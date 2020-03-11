@@ -22,6 +22,7 @@ def start
 File.open("start.txt").each do |line|
   puts line
 end
+end
 
 start
 #######################################################################################################
@@ -202,8 +203,9 @@ def act_one_block_one
 
 #WHILE LOOP
 #This will allow us to loop the code for as long as the condition is TRUE
-exit_flag = 0
-while exit_flag == 0
+
+  exit_flag = 0
+  while exit_flag == 0
   puts 'still in the loop baby'
 
 puts '///////////////////////////act one - the scared princess//////////////////////'
@@ -233,8 +235,8 @@ choice = gets.chomp #local variable
 item = "wire"
 inventory = Array[]
 choice_combo = Array[]
-evil = 0
-good = 0
+#evil = nil
+#good = nil
 
 ####//////////////If the player select to collect the item then they leave this method to start block two
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
@@ -250,23 +252,27 @@ good = 0
       puts "You look around the cell. You see thick bars preventing you from getting out. A guard stands near by watching you"
     end
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) }# => true
-        puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking you up and down"
-        evil = evil + 1
+#////////////////////////////Annoy the princess////////////////////
+
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
+      #evil = evil + 1  
+      puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
     end
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 1 # => if looking at girl and evil stat is above 1
-      puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer"
-        evil = evil + 2
+      #evil = evil + 2
+      puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
+     end
+
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 3 # => if looking at girl and evil stat is above 3
+      #evil = evil + 5  
+      puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
+      the_end
     end
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 3 # => if looking at girl and evil stat is above 1
-        puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
-          evil = evil + 5
-          return the_end
-    end
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if ['look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
+    if ['punch', 'karate chop'].any? { |word| choice.downcase.include?(word) } # => true
         puts '3'
     elsif ['sneak','ninja walk'].any? { |word| choice.downcase.include?(word) } # => true
         puts '4'
@@ -278,13 +284,20 @@ good = 0
         puts '7'
     elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
         puts '8'
-    elsif ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '9'
-    else
-      #p Faker::FunnyName.two_word_name
-  end
-end # while loop end point
+    
+    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
+        puts "You look at the princess and build up the courage to talk to her"
+        #good = good + 2
+    end
 
+    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
+      puts "You walk over to the bars and ask the guard for his name."
+      puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
+      #good = good + 1
+    end
+
+    end
+  end
 
 end
 
@@ -315,32 +328,32 @@ p "we are out of method"
 
 
 
-# def the_end
-# puts "this is the end of the game"
-# puts "would you like play again?"
+def the_end
+puts "this is the end of the game"
+puts "would you like play again?"
 
-# puts "Y yes | N no"
+puts "Y yes | N no"
 
-# input = gets.chomp
+input = gets.chomp
   
-#   if input == "y" | "Y"
-#     start
-#   elsif input == "n" | "N"
-#     puts "Ok, formating laptop.."
-#     sleep(1)
-#     puts "."
-#     sleep(1)
-#     puts ".."
-#     sleep(1)
-#     puts "..."
-#     sleep(1)
-#     puts "Just kidding... Have a good day"
-#     return
-#   else
-#     puts "Sorry, incorrect letter"
-#   end
+  if input == "y" | "Y"
+    start
+  elsif input == "n" | "N"
+    puts "Ok, formating laptop.."
+    sleep(1)
+    puts "."
+    sleep(1)
+    puts ".."
+    sleep(1)
+    puts "..."
+    sleep(1)
+    puts "Just kidding... Have a good day"
+    return
+  else
+    puts "Sorry, incorrect letter"
+  end
 
-# end
+end
 
 
 
