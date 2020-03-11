@@ -105,8 +105,10 @@ start
 # This is the body function that will decide on what how many turns before teleporting back to home
 #//////////////////////////////////////////////////////////////////////////////////////////////////
 
-def body_function  
-  puts "You have the urge to go to the toilet. What do you do"
+def body_function
+  
+  sleep(3)
+  puts "You have the urge to go to the toilet. What do you do".colorize(:yellow)
   print "> "
   body_function = gets.chomp #local variable
   #moves = 0
@@ -215,12 +217,19 @@ def act_one_block_one
 
   exit_flag = 0
   while exit_flag == 0
-  puts 'still in the loop baby'
+  puts 'STILL IN THE LOOP BABY'
 
-puts "You wake up in an old brick prison cell. It smells of piss and rotten fruit. As you wipe the sleep dust from your eyes you notice a figure standing in the corner. A young woman stands, dressed in old fantasy clothing. You sit up and notice the thick prison bars that block your way out. A prison guard stands watch.".colorize(:lightyellow)
-puts "///////////////////////////////////////////////////////////////////////////////////////////////////"
-puts "You see the following objects - a small piece of wire."
-#/////////////////throw the intro in another method thing/////////////
+puts "You wake up in an old brick prison cell. It smells of piss and rotten fruit.".colorize(:yellow)
+sleep(1)
+puts "As you wipe the sleep dust from your eyes you notice a figure standing in the corner.".colorize(:yellow)
+sleep(1)
+puts "It is a young beautiful woman dressed in old fantasy clothing. She smiles but looks away".colorize(:yellow)
+sleep(1)
+puts "You sit up and notice the thick prison bars that block your way out.".colorize(:yellow) 
+sleep(1)
+puts "A prison guard stands watch. He snots and spits in your general direction".colorize(:yellow)
+sleep(1)
+puts "You see the following objects - a small piece of wire.".colorize(:yellow)
 
 puts [
   'What would you like to do', 
@@ -278,7 +287,7 @@ p evil
     elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } #&& evil >= 3 # => if looking at girl and evil stat is above 3
       #evil = evil + 5  
       puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
-      the_end
+      return exit_flag = 2
     end
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,6 +302,7 @@ p evil
       File.open("ActOne_attackPrincess.txt").each do |line|
         puts line
       end
+      return exit_flag = 2
     end
 
     if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
@@ -340,10 +350,17 @@ act_one_block_one
 #steal his keys to unlock the door
 
 
+exit_flag = act_one_block_one
+
 #p inventory
 p "we are out of method"
+p exit_flag
 
-
+if exit_flag == 2
+  the_end
+else
+  return
+end
 
 
 
