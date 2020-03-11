@@ -204,8 +204,11 @@ File.open("start_p2.txt").each do |line|
 #/////////////////////////////////////////////////////////////////////////////////////////////////
 #///////////////STORY ONE////////////////////////////////////////////////////////////////////////
 def act_one_block_one
-
+  
   puts "\e[H\e[2J" #this clears the screen
+
+  a = Artii::Base.new :font => 'slant'
+  puts a.asciify('---ACT  ONE---').colorize(:yellow)
 
 #WHILE LOOP
 #This will allow us to loop the code for as long as the condition is TRUE
