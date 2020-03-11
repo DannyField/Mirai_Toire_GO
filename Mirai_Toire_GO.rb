@@ -118,13 +118,13 @@ def time_travel(dest)
 
     if ['Australia', 'Melbourne', 'Sydney', 'Tasmaia', 'Perth'].any? { |word| dest.downcase.include?(word.downcase) } # => true
         puts "CHECK"
-        File.open("Australia.txt").each do |line|
+        File.open("./Australia/Australia.txt").each do |line|
         puts line 
     end
     end
     
     if ['Hell'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Hell.txt").each do |line|
+        File.open("./Hell/Hell.txt").each do |line|
         puts line
     end
     end
@@ -136,63 +136,12 @@ def time_travel(dest)
     end
     end
 
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
-    if ['Germany', 'West Germany', 'World War 2', 'World War'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Germany.txt").each do |line|
-        puts line
-    end
-    end
-
     if ['Titanic', 'Ship'].any? { |word| dest.downcase.include?(word.downcase) } # => true
-        File.open("Titanic.txt").each do |line|
+        File.open("./Titanic/Titanic.txt").each do |line|
         puts line
     end
-    end
-
-
+  end
 end
-
 
 dest = location # grabs the result from location and stores to dest
 time_jump = year # grabs the result from year that the user chose and stores to time_jump
@@ -213,14 +162,26 @@ def japan
     #     turns = 3
     # end
 
+
+# if bdfu == 0
+#   return
+# else
+# end
+
     puts "What would you like to do?"
     print "> "
+    bdfu = 5
+    p bdfu
     
     choice = gets.chomp #local variable
+    
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
     File.open("./Japan/Japan_talk.txt").each do |line|
-    puts line
+    puts line 
     end
+    bdfu = bdfu - 1
+    p bdfu
+    japan
     
     elsif ['murder', 'kill', 'attack', 'punch', 'kick', 'thump', 'curb stomp', 'beat'].any? { |word| choice.downcase.include?(word) } # => true
     File.open("./Japan/Japan_kill.txt").each do |line|
@@ -242,8 +203,18 @@ def japan
     puts line
     end
 
-    elsif ['run', 'sprint', 'skip'].any? { |word| choice.downcase.include?(word) } # => true
+    elsif ['climb', 'tree'].any? { |word| choice.downcase.include?(word) } # => true
     File.open("./Japan/Japan_climb.txt").each do |line|
+    puts line
+    end
+
+    elsif ['swim', 'water'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_swim.txt").each do |line|
+    puts line
+    end
+
+  elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_drink.txt").each do |line|
     puts line
     end
 end
@@ -287,14 +258,6 @@ if toilet_choice == 'hello'
 else
   return
 end
-
-
-# end of the class block
-
-
-#the user must pull down their pants, otherwise they will pee or soil themselves
-# though this feature is way too complex at the moment
-
 
 
 
