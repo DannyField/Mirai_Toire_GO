@@ -195,9 +195,15 @@ File.open("start_p2.txt").each do |line|
 
 #/////////////////////////////////////////////////////////////////////////////////////////////////
 #///////////////STORY ONE////////////////////////////////////////////////////////////////////////
-
 def act_one_block_one
-puts '///////////////////////////act one//the scared princess//////////////////////'
+
+#WHILE LOOP
+#This will allow us to loop the code for as long as the condition is TRUE
+exit_flag = 0
+while exit_flag == 0
+  puts 'still in the loop baby'
+
+puts '///////////////////////////act one - the scared princess//////////////////////'
 puts 'wake up in cell, there is a girl there that wants to be saved'
 puts 'you see the following objects - small wire.'
 puts 'what do you want to do'
@@ -207,22 +213,28 @@ puts 'what do you want to do'
 
 choice = gets.chomp #local variable
 item = "wire"
-
 inventory = Array[]
 choice_combo = Array[]
 
+####//////////////If the player select to collect the item then they leave this method to start block two
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
       # => true
         puts "You have picked up the #{item}"
         inventory.insert(0, item)
         inventory
+        return exit_flag = 1
     end
+###////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['examine','look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '2'
-    elsif ['look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
+      File.open("start.txt").each do |line|
+        puts line
+      end
+    end
+
+    if ['look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
         puts '3'
-    elsif ['sneak', 'ninja walk'].any? { |word| choice.downcase.include?(word) } # => true
+    elsif ['sneak','ninja walk'].any? { |word| choice.downcase.include?(word) } # => true
         puts '4'
     elsif ['walk', 'sprint', 'skip'].any? { |word| choice.downcase.include?(word) } # => true
         puts '5'
@@ -235,15 +247,21 @@ choice_combo = Array[]
     elsif ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
         puts '9'
     else
-    return
+
   end
 
+end # while loop end point
+ # method end point
 
 end
 
 
 
+
+
 act_one_block_one
+
+
 
 #////////////////Once block one condition is satified, the player will get to block two
 
