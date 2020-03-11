@@ -162,11 +162,10 @@ def japan
     #     turns = 3
     # end
 
-
-# if bdfu == 0
-#   return
-# else
-# end
+    # if bdfu == 0
+    #    return
+    # else
+    # end
 
     puts "What would you like to do?"
     print "> "
@@ -179,9 +178,6 @@ def japan
     File.open("./Japan/Japan_talk.txt").each do |line|
     puts line 
     end
-    bdfu = bdfu - 1
-    p bdfu
-    japan
     
     elsif ['murder', 'kill', 'attack', 'punch', 'kick', 'thump', 'curb stomp', 'beat'].any? { |word| choice.downcase.include?(word) } # => true
     File.open("./Japan/Japan_kill.txt").each do |line|
@@ -213,15 +209,18 @@ def japan
     puts line
     end
 
-  elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
+    elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
     File.open("./Japan/Japan_drink.txt").each do |line|
     puts line
     end
-end
+    
+    else
+    return
+  end
 end
 
 
-japan
+
 
 
 
