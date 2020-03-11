@@ -217,8 +217,7 @@ def act_one_block_one
   while exit_flag == 0
   puts 'still in the loop baby'
 
-puts "///////////////////////////ACT ONE/////////////////////////////////////////////////////////////////".colorize(:yellow)
-puts "You wake up in an old brick prison cell. It smells of piss and rotten fruit. As you wipe the sleep dust from your eyes you notice a figure standing in the corner. A young woman stands, dressed in old fantasy clothing. You sit up and notice the thick prison bars that block your way out. A prison guard stands watch."
+puts "You wake up in an old brick prison cell. It smells of piss and rotten fruit. As you wipe the sleep dust from your eyes you notice a figure standing in the corner. A young woman stands, dressed in old fantasy clothing. You sit up and notice the thick prison bars that block your way out. A prison guard stands watch.".colorize(:lightyellow)
 puts "///////////////////////////////////////////////////////////////////////////////////////////////////"
 puts "You see the following objects - a small piece of wire."
 #/////////////////throw the intro in another method thing/////////////
@@ -285,12 +284,21 @@ p evil
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if ['punch', 'karate chop'].any? { |word| choice.downcase.include?(word) } # => true
-      File.open("ActOne_attackGuard").each do |line|
+    if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }# => true# => true
+      File.open("ActOne_attackGuard.txt").each do |line|
         puts line
       end
+    end
+
+    if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['girl', 'woman', 'princess', 'chick', 'female'].any? { |word| choice.downcase.include?(word) }# => true# => true
+      File.open("ActOne_attackPrincess.txt").each do |line|
+        puts line
+      end
+    end
+
+
     elsif ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
-      File.open("ActOne_sneak").each do |line|
+      File.open("ActOne_walk.txt").each do |line|
         puts line
       end
     elsif ['climb'].any? { |word| choice.downcase.include?(word) } # => true
