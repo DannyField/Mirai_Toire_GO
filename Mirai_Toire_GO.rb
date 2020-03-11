@@ -268,13 +268,12 @@ p evil.class #shows integer
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
       puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
-
+     
 p evil
 
     elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 1 # => if looking at girl and evil stat is above 1
       #evil = evil + 2
       puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
-    
 
     elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } #&& evil >= 3 # => if looking at girl and evil stat is above 3
       #evil = evil + 5  
@@ -296,17 +295,14 @@ p evil
       end
     end
 
-
-    elsif ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
+    if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
       File.open("ActOne_walk.txt").each do |line|
         puts line
       end
     elsif ['climb'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '6'
-    elsif ['kick', 'water'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '7'
-    elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '8'
+        puts 'You try to climb the walls, but you fall down on your bum. The guard laughs at you'
+    elsif ['drink'].any? { |word| choice.downcase.include?(word) } # => true
+        puts 'There is nothing to drink'
     
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You look at the princess and build up the courage to talk to her"
@@ -317,7 +313,7 @@ p evil
       puts "You walk over to the bars and ask the guard for his name."
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
       good = good + 1
-    end
+      end
 
     end
   end
