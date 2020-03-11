@@ -10,14 +10,10 @@ a.asciify('Art!')
 #/////////////////////MIRAI_TOIRE_GO_v0.0.3/////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-# Version rewrite
-# I'm an idoit for trying to cram a 2000+ pathway adventure game into 2 days work
-# This version will be stripped back.
-
 #//////////////////////////////////////////////////////////////////////////////////This is the intro area
 #//////////////////////////////////////////////////////////// This opens up a text as the intro and works.
 
-File.open("start.txt").each do |line|
+File.open("one.txt").each do |line|
   puts line
 end
 
@@ -48,16 +44,16 @@ end
 #############################################################################################################
 #////////////////////////////////////////LOCATION METHOD/////////////////////////////////////////////////////
 
-# def location
-#   puts 'A female voice appears from a tiny speaker somewhere in the room'
-#   puts 'Thank you for using this device. Where and when would you like to go'.colorize(:red)
-#   puts 'To make your travelling more efficent please type a single location and time'
-#   puts 'Enter a location:'
-#   print "> "
-#   input = gets.chomp
-#   puts "Great! You have answered #{input}".colorize(:light_blue)
-#   input #returns the result from the input location
-# end
+def location
+  puts 'A female voice appears from a tiny speaker somewhere in the room'
+  puts 'Thank you for using this device. Where and when would you like to go'.colorize(:red)
+  puts 'To make your travelling more efficent please type a single location and time'
+  puts 'Enter a location:'
+  print "> "
+  input = gets.chomp
+  puts "Great! You have answered #{input}".colorize(:light_blue)
+  input #returns the result from the input location
+end
 
 #puts location.class # should be a string and it also returned from the method [location]
 #need to put in a condition that if the place isn't here, then puts 'that place is currently unavailable at this moment
@@ -66,36 +62,36 @@ end
 # This is the year method which will ask the user what time period they want to go to
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-# def year
-#   puts "Please enter a year:"
-#   print "> "
-#   year = gets.chomp.to_s
-#   puts "Fantasic! You have answered #{year}".colorize(:light_blue)
-#   year = year.to_i
-#     case year
-#     when 0..500
-#       puts "year 0 to 500AD"
-#       return 1
-#     when 501..1000
-#       puts "year 501AD to 1000AD"
-#       return 2
-#     when 1001..1500
-#       puts "year 1001 to the 1500"
-#       return 3
-#     when 1501..2000
-#       puts "1501 to 2000"
-#       return 4
-#     when 2001..2020
-#       puts "Current time : 2001 to 2020"
-#       return 5
-#     when 2020..7000
-#       puts "The future 2020 to 3000 and beyond!"
-#       return 6
-#     else
-#     puts "Time jump not defined. Set to random jump time"
-#     return year
-#   end
-# end  
+def year
+  puts "Please enter a year:"
+  print "> "
+  year = gets.chomp.to_s
+  puts "Fantasic! You have answered #{year}".colorize(:light_blue)
+  year = year.to_i
+    case year
+    when 0..500
+      puts "year 0 to 500AD"
+      return 1
+    when 501..1000
+      puts "year 501AD to 1000AD"
+      return 2
+    when 1001..1500
+      puts "year 1001 to the 1500"
+      return 3
+    when 1501..2000
+      puts "1501 to 2000"
+      return 4
+    when 2001..2020
+      puts "Current time : 2001 to 2020"
+      return 5
+    when 2020..7000
+      puts "The future 2020 to 3000 and beyond!"
+      return 6
+    else
+    puts "Time jump not defined. Set to random jump time"
+    return year
+  end
+end  
 
 # /////////////////////////////////////////////////////////////////////////////////////////////////
 # This is the body function that will decide on what how many turns before teleporting back to home
@@ -179,60 +175,82 @@ end
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#dest = location # grabs the result from location and stores to dest
-#time_jump = year # grabs the result from year that the user chose and stores to time_jump
-#p moves
-
+dest = location # grabs the result from location and stores to dest
+time_jump = year # grabs the result from year that the user chose and stores to time_jump
 body_function
+p moves
 
-File.open("start_p2.txt").each do |line|
+time_travel(dest)
+
+bdfu = 5
+
+############################################################################################
+############################################################################################
+def japan
+    
+    #This is the amount of plays you get in each world. Poo gives 5 whereas pee is only 3
+    # if bdfu_amount == 5
+    #     turns = 5
+    # else
+    #     turns = 3
+    # end
+
+    # if bdfu == 0
+    #    return
+    # else
+    # end
+
+    puts "What would you like to do?"
+    print "> "
+    bdfu = 5
+    p bdfu
+    
+    choice = gets.chomp #local variable
+    
+    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_talk.txt").each do |line|
+    puts line 
+    end
+    
+    elsif ['murder', 'kill', 'attack', 'punch', 'kick', 'thump', 'curb stomp', 'beat'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_kill.txt").each do |line|
     puts line
-  end
+    end
+    
+    elsif ['fuck', 'sex', 'rape', 'bum', 'arse', 'headjob', 'molest'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_sex.txt").each do |line|
+    puts line
+    end
 
-#possibly put music or a text here
+    elsif ['make love', 'love'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_makelove.txt").each do |line|
+    puts line
+    end
 
-#time_travel(dest)
+    elsif ['run', 'sprint', 'skip'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_run.txt").each do |line|
+    puts line
+    end
 
-#/////////////////////////////////////////////////////////////////////////////////////////////////
-#///////////////STORY ONE////////////////////////////////////////////////////////////////////////
+    elsif ['climb', 'tree'].any? { |word| choice.downcase.include?(word) } # => true
+    File.open("./Japan/Japan_climb.txt").each do |line|
+    puts line
+    end
 
-inventory = Array[]
-
-puts 'wake up in cell'
-puts 'you see the following objects'
-puts 'what do you want to do'
-
-#look at import random
-#look at importing time
-
-
-choice = gets.chomp #local variable
-item = "lockpick"
-
-choice_combo = Array[]
-
-    if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand'].any? { |word| choice.downcase.include?(word) } # => true
-        puts "You have picked up the #{item}"
-        item.insert(0, item)
-    elsif ['examine','look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '2'
-    elsif ['look', 'glare'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '3'
-    elsif ['sneak', 'ninja walk'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '4'
-    elsif ['walk', 'sprint', 'skip'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '5'
-    elsif ['climb'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '6'
     elsif ['swim', 'water'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '7'
+    File.open("./Japan/Japan_swim.txt").each do |line|
+    puts line
+    end
+
     elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '8'
-    elsif ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
-        puts '9'
+    File.open("./Japan/Japan_drink.txt").each do |line|
+    puts line
+    end
+    
     else
     return
   end
+end
 
 
 
@@ -241,93 +259,15 @@ choice_combo = Array[]
 
 
 
+########################### AUSTRALIA
 
+def australia
 
+File.open("Australia.txt").each do |line|
+  puts line
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ############################################################################################
-# ############################################################################################
-# def japan
-    
-#     #This is the amount of plays you get in each world. Poo gives 5 whereas pee is only 3
-#     # if bdfu_amount == 5
-#     #     turns = 5
-#     # else
-#     #     turns = 3
-#     # end
-
-#     # if bdfu == 0
-#     #    return
-#     # else
-#     # end
-
-#     puts "What would you like to do?"
-#     print "> "
-#     bdfu = 5
-#     p bdfu
-    
-#     choice = gets.chomp #local variable
-    
-#     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_talk.txt").each do |line|
-#     puts line 
-#     end
-    
-#     elsif ['murder', 'kill', 'attack', 'punch', 'kick', 'thump', 'curb stomp', 'beat'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_kill.txt").each do |line|
-#     puts line
-#     end
-    
-#     elsif ['fuck', 'sex', 'rape', 'bum', 'arse', 'headjob', 'molest'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_sex.txt").each do |line|
-#     puts line
-#     end
-
-#     elsif ['make love', 'love'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_makelove.txt").each do |line|
-#     puts line
-#     end
-
-#     elsif ['run', 'sprint', 'skip'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_run.txt").each do |line|
-#     puts line
-#     end
-
-#     elsif ['climb', 'tree'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_climb.txt").each do |line|
-#     puts line
-#     end
-
-#     elsif ['swim', 'water'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_swim.txt").each do |line|
-#     puts line
-#     end
-
-#     elsif ['drink', 'lick'].any? { |word| choice.downcase.include?(word) } # => true
-#     File.open("./Japan/Japan_drink.txt").each do |line|
-#     puts line
-#     end
-    
-#     else
-#     return
-#   end
-# end
-
-
-
+end
 
 
 
@@ -362,6 +302,8 @@ if ['toilet', 'walk', 'run', 'crawl'].any? { |word| user.downcase.include?(word)
   puts 'need to do something' 
 end
 
+#the time travel machine can only travel to some places
+# keep it simple
 
 
 
@@ -372,6 +314,27 @@ end
 
 
 
+
+#i could create methods that are different levels that could be called
+
+#could also have a random choice
+
+def wildwest
+
+end
+
+
+def future
+
+end
+
+def dinosaur
+
+end
+
+def world_war_two
+
+end
 
 
 def sun

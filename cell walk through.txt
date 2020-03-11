@@ -1,0 +1,14 @@
+In a cell, there is a girl. 
+
+#talk to girl
+#talk to guard
+
+examine 
+
+You see a guard. But he is very tired.
+
+
+
+
+
+THe idea is to make the guard sleep. Then steal his keys on his belt.

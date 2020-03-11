@@ -20,3 +20,14 @@ attack
 climb
 
 clean
+
+git add .
+danny@dannyLaptop:~/Desktop/Mirai_Toire_GO$ git commit -m "cleaned up look"
+[master e3fb754] cleaned up look
+
+ 1 file changed, 50 insertions(+), 17 deletions(-)
+danny@dannyLaptop:~/Desktop/Mirai_Toire_GO$ git push -u origin master
+
+Username for 'https://github.com': DannyField
+Password for 'https://DannyField@github.com': 
+
