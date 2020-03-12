@@ -696,6 +696,8 @@ def act_one_block_four
 
   exit_flag = 0
   while exit_flag == 0
+  puts 'Like a moth to the flames, the guard walks over seeing the dangling shiny object'.colorize(:yellow)
+  puts "It's not long that the prison guard falls alseep leaning against the bars".colorize(:yellow)
   puts 'The prison guard is asleep against the prison bars'.colorize(:yellow)
   puts 'You are still in the prison cell, but there is light at the end of the tunnel'.colorize(:yellow)
 puts [
@@ -705,12 +707,11 @@ puts [
   'I\'m sure you can figure something out',
   'Go for gold!',
   'Hang in there!',
-  'Stay strong',
+  "Now's your chance to escape",
   'How much more encouragement can I offer you',
   'Surely you would know to grab the wire',
   'Do you need a hint?',
   'You can do it',
-  'You have a piece of wire'
 ].to_a.sample.colorize(:green)
 # Above code is a random output for the player
 
@@ -812,6 +813,9 @@ evil = 0
 end
 
 
+result = act_one_block_four
+p result 
+
 def winner
   puts "You and the princess escape quietly through the prison cell"
   puts "As you leave you feel an odd sensation"
@@ -840,10 +844,10 @@ when 8
   return the_end
 else
  puts 'incorrect'
-#return year
 end
 
-#/////////////////////////////////////////////////////
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 # ############################################################################################
