@@ -774,9 +774,17 @@ end
 
 
 def winner
-  puts "YOU WIN!"
-end
+  puts "You and the princess escape quietly through the prison cell"
+  puts "As you leave you feel an odd sensation"
+  puts "You faint, and realise that you are back in your bathroom..."
+  puts "with the princess beside you......."
 
+  sleep(3)
+  puts "\e[H\e[2J" #this clears the screen
+
+  a = Artii::Base.new :font => 'slant'
+  puts a.asciify('To Be Continued...').colorize(:yellow)
+end
 
 #//////////////////////////ending//////////////////////////////////
 
@@ -796,57 +804,7 @@ else
 #return year
 end
 
-
-
-
-
-
-
-
-#//////////////////exit block
-#wire = nil
-#
-
-
-
-#///////////////////////
-
-#////////////////Block TWO//////////////////
-
-#block two is doing something with the wire
-#use wire on necklance to dangle in front of guard
-
-
-
-
-#////////////////////once block two is satified, then 
-
-#use wire on necklance to dangle in front of guard, he falls alseep and you can 
-
-#////////////////////
-
-#steal his keys to unlock the door
-
-
-#exit_flag = 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#/////////////////////////////////////////////////////
 
 
 # ############################################################################################
@@ -916,42 +874,3 @@ end
 #     return
 #   end
 # end
-
-
-# it might be good to have it exit the method. Maybe a while loop that if the player is in the toilet area, then it loops.
-# it will help with the time travelling aspect as the loop can check if see where the player is
-# It might also be a case that I can use METHOD's for within areas even. Such as calling a function within a function
-
-# if toilet_choice == 'hello'
-#   return room #by using return and method, I am able to escape this method and run the other method! Success!!
-# else
-#   return
-# end
-
-# Functions that sort of work.... but not perfectly
-# class Array
-#   def included_in? array
-#     array.to_set.superset?(self.to_set)
-#   end
-# end
-# p [1,2,4].included_in?([1,10,2,34,4]) #=> true
-# p ['dad', 'mum', 'june'].included_in?(['dog', 'cat', 'mouse', 'dad', 'june']) # this is false, as it needs mum to also be in here
-# p [1,4,5].included_in?([1, 4, 5, 19])
-
-
-#this might work too
-
-# puts "yay" if [1, 2, 3].all? { |i| (1..9).include?(i) }
-# # => "yay"
-
-# puts "nope" if [1, 2, 3, 'A'].any? { |i| not (1..9).include?(i) }
-# => "nope"
-
-# another one might be - but it requires 'set'
-
-# p ARGV
-# #argv will always be an array and accessable
-
-# if ARGV = 'god'
-#    puts "you are in god mode"
-#  end
