@@ -6,8 +6,6 @@ require 'my_gemmy'
 a = Artii::Base.new :font => 'slant'
 puts a.asciify('Mirai Torie GO').colorize(:yellow)
 
-#p my_gemmy
-
 #/////////////////////MIRAI_TOIRE_GO_v0.0.3/////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -183,14 +181,13 @@ end
 #     end
 
 # return
-
 # end
 
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#dest = location # grabs the result from location and stores to dest
-#time_jump = year # grabs the result from year that the user chose and stores to time_jump
-#p moves
+# dest = location # grabs the result from location and stores to dest
+# time_jump = year # grabs the result from year that the user chose and stores to time_jump
+# p moves
 
 body_function
 
@@ -199,13 +196,13 @@ File.open("start_p2.txt").each do |line|
     sleep(2)
   end
 
-#possibly put music or a text here
-#music
+# possibly put music or a text here
+# music
 
-#time_travel(dest)
+# time_travel(dest)
 
-#/////////////////////////////////////////////////////////////////////////////////////////////////
-#///////////////STORY ONE////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////STORY ONE////////////////////////////////////////////////////////////////////////
 def act_one_block_one
   
   sleep(3)
@@ -214,12 +211,12 @@ def act_one_block_one
   a = Artii::Base.new :font => 'slant'
   puts a.asciify('---ACT  ONE---').colorize(:yellow)
 
-#WHILE LOOP
-#This will allow us to loop the code for as long as the condition is TRUE
+# WHILE LOOP
+# This will allow us to loop the code for as long as the condition is TRUE
 
   exit_flag = 0
   while exit_flag == 0
-#  puts 'STILL IN THE LOOP BABY'
+# puts 'STILL IN THE LOOP BABY'
 
 puts "You wake up in an old brick prison cell. It smells of piss and rotten fruit.".colorize(:yellow)
 sleep(1)
@@ -254,11 +251,11 @@ choice_combo = Array[]
 evil = 0
 good = 0
 
-#/////////////the evil class
+# ////////////////the evil class
 #p "The evil class is currently #{evil}"
-#////////////////the evil class
+# ////////////////the evil class
 
-####//////////////If the player select to collect the item then they leave this method to start block two/////////////////
+# //////////////If the player select to collect the item then they leave this method to start block two/////////////////
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
       # => true
         puts "You have picked up the #{item}"
@@ -266,14 +263,14 @@ good = 0
         inventory
         return 1
     end
-###/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside'].any? { |word| choice.downcase.include?(word) }# => true
       puts "You look around the cell. You see thick bars preventing you from getting out." 
       puts "A guard stands near by watching you"
     end
 
-#////////////////////////////Annoy the princess/////////////////////////////////////////////////////////////////////////
+# ////////////////////////////Annoy the princess/////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'glance'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
@@ -290,16 +287,16 @@ good = 0
       puts "I probably wouldn't stare at her any longer" 
     end
 
-    if ['look', 'glare', 'stare' 'glance'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
+    if ['look', 'glare', 'stare', 'glance'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
       evil = evil + 5  
       puts "Angered by your constant staring she calls for the guard to throw you into another cell." 
       puts "Which he does and thus ending your chance to escape"
       return 8
     end
 
-#///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
+# ///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
 
-    if ['look', 'glare', 'stare' 'glance'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } 
+    if ['look', 'glare', 'stare', 'glance'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } 
       puts "The guard notices you looking at him."
       puts "He snots:"
       puts [
@@ -312,7 +309,7 @@ good = 0
       ].to_a.sample.colorize(:red)
     end
 
-#///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
+# ///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire', 'rape', 'fuck' ,'sex'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }# => true# => true
       File.open("./BlockOne/ActOne_attackGuard.txt").each do |line|
@@ -327,7 +324,7 @@ good = 0
       return 8
     end
 
-#///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
+# ///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
 
     if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
       File.open("./BlockOne/ActOne_walk.txt").each do |line|
@@ -344,7 +341,7 @@ good = 0
         puts 'There is nothing to drink'
     end
     
-#///////////////////////////Talk with NPC//////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////Talk with NPC//////////////////////////////////////////////////////////////////////////////
 
     if ['talk', 'chat', 'discussion', 'lecture' 'swear', 'sweet talk'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }
         puts "You look at the woman and build up the courage to talk to her."
@@ -361,8 +358,8 @@ good = 0
     end
 end
 
-#//////////////////////////////////////END METHOD//////////////////////////////////////////////////////////////////////
-#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////END METHOD//////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 def the_end
   a = Artii::Base.new :font => 'slant'
@@ -393,18 +390,18 @@ def the_end
       return
     end
 end
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 result = act_one_block_one
-#p result 
+# p result 
 # => 2
 
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////
-#////////////////////////////////BLOCK TWO//////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////BLOCK TWO//////////////////////////////////////////////////////////////////
 def act_one_block_two
   
-#WHILE LOOP
-#This will allow us to loop the code for as long as the condition is TRUE
+# WHILE LOOP
+# This will allow us to loop the code for as long as the condition is TRUE
 
   exit_flag = 0
   while exit_flag == 0
@@ -425,8 +422,6 @@ def act_one_block_two
 ].to_a.sample.colorize(:green)
 # Above code is a random output for the player
 
-#look at import random
-
 choice = gets.chomp #local variable
 item = "wire"
 inventory = Array[]
@@ -434,22 +429,22 @@ choice_combo = Array[] #was for possible use
 evil = 0
 good = 0
 
-#/////////////the evil class - checking whether it works
+# /////////////the evil class - checking whether it works
 # p "The evil class is currently #{evil}"
 
-####//////////////the player can try to use this on the world/////////////////
+# //////////////the player can try to use this on the world/////////////////
     if ['use', 'prod', 'stick',].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
       # => true
         puts "You attempt to use the #{item}, but nothing happens."
     end
-###////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside'].any? { |word| choice.downcase.include?(word) }# => true
       puts "You look around the cell. You see thick bars preventing you from getting out."
       puts "A guard stands near by watching you. You put the wire behind your back"
     end
 
-#////////////////////////////Annoy the princess////////////////////
+# ////////////////////////////Annoy the princess////////////////////
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
@@ -473,7 +468,7 @@ good = 0
       return 8
     end
 
-#///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
+# ///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } # => if looking at girl and evil stat is above  
       puts "The guard notices you looking at him."
@@ -489,7 +484,7 @@ good = 0
       ].to_a.sample.colorize(:red)
     end
 
-#///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
+# ///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }# => true# => true
       File.open("./BlockOne/ActOne_attackGuard.txt").each do |line|
@@ -504,7 +499,7 @@ good = 0
       return 8
     end
 
-#///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
+# ///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
 
     if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
       File.open("./BlockOne/ActOne_walk.txt").each do |line|
@@ -520,10 +515,10 @@ good = 0
         puts 'There is nothing to drink.'
     end
     
-#///////////////////////////Talk with NPC/////////////////////////////////////////////////////////////////////////////
-#////////////////////////Below code will throw out of the block to the next//////////////////////////////////////////
+# ///////////////////////////Talk with NPC/////////////////////////////////////////////////////////////////////////////
+# ////////////////////////Below code will throw out of the block to the next//////////////////////////////////////////
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
+    if ['talk', 'chat', 'discussion', 'lecture', 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You look at the princess and build up the courage to talk to her. She seems friendly"
         puts "She tells you that she is a princess and has been locked up by the evil King " + Faker::FunnyName.two_word_name.colorize(:red)
         puts "You can't help notice her neck lace, it's ruby shinning bright"
@@ -531,10 +526,10 @@ good = 0
         puts "You have a " + 'necklace'.colorize(:green)
         return 2
     end
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
+    if ['talk', 'chat', 'discussion', 'lecture', 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
       puts "You ask the guard for his name."
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
       good = good + 1
@@ -543,17 +538,17 @@ good = 0
 end
 
 result = act_one_block_two
-#p result error checking
+# p result error checking
 
-#//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#////////////////////////////////BLOCK THREE//////////////////////////////////////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////BLOCK THREE//////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 def act_one_block_three
   
   sleep(1)
 
-#WHILE LOOP
-#This will allow us to loop the code for as long as the condition is TRUE
+# WHILE LOOP
+# This will allow us to loop the code for as long as the condition is TRUE
 
   exit_flag = 0
   while exit_flag == 0
@@ -575,18 +570,16 @@ puts [
 ].to_a.sample.colorize(:green)
 # Above code is a random output for the player
 
-#look at import random
-
-choice = gets.chomp #local variable
+choice = gets.chomp # local variable
 item = "wire"
 inventory = Array[]
-choice_combo = Array[] #was for possible use
+choice_combo = Array[] # was for possible use
 evil = 0
 
-#/////////////the evil class
+# ///////////// the evil class
 # p "The evil class is currently #{evil}"
 
-####//////////////the player can try to use this on the world/////////////////
+# //////////////the player can try to use this on the world/////////////////
     if ['use', 'tie', 'put', 'combine'].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
       # => true
         puts "You attempt to use the #{item}, but nothing happens." 
@@ -601,7 +594,7 @@ evil = 0
         return 3
     end
 
-###////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside' 'walls'].any? { |word| choice.downcase.include?(word) }# => true
       puts "You look around the cell." 
@@ -609,7 +602,7 @@ evil = 0
       puts "He yawns a great big yawn"
     end
 
-#////////////////////////////Annoy the princess////////////////////
+# ////////////////////////////Annoy the princess////////////////////
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
@@ -633,13 +626,13 @@ evil = 0
       return 8
     end
 
-#///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
+# ///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'watch'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } # => if looking at girl and evil stat is above  
       puts "The guard yawns at you. He's eyes appear heavy"
     end
 
-#///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
+# ///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }
       puts "As if. You hits back your hand as you try to grab him through the bars"
@@ -652,7 +645,7 @@ evil = 0
       return 8
     end
 
-#///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
+# ///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
 
     if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
       File.open("./BlockOne/ActOne_walk.txt").each do |line|
@@ -669,13 +662,13 @@ evil = 0
         puts 'There is nothing to drink.'
     end
     
-#///////////////////////////Talk with NPC///////////////////////////////////////////////////////////////////////////
+# ///////////////////////////Talk with NPC///////////////////////////////////////////////////////////////////////////
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
+    if ['talk', 'chat', 'discussion', 'lecture', 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "you probably shouldn't talk and work on luring the guard"
     end
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
+    if ['talk', 'chat', 'discussion', 'lecture', 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
       puts "You walk over to the bars and ask the guard for his name." 
       puts "He looks tired, very tired"
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
@@ -684,17 +677,17 @@ evil = 0
 end
 
 result = act_one_block_three
-# p result 
+# p result # Error checking to see if returns result  
 
-#//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#////////////////////////////////BLOCK FOUR///////////////////////////////////////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# ////////////////////////////////BLOCK FOUR///////////////////////////////////////////////////////////////////
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 def act_one_block_four
   
   sleep(1)
 
-#WHILE LOOP
-#This will allow us to loop the code for as long as the condition is TRUE
+# WHILE LOOP
+# This will allow us to loop the code for as long as the condition is TRUE
 
   exit_flag = 0
   while exit_flag == 0
@@ -717,12 +710,10 @@ puts [
 ].to_a.sample.colorize(:green)
 # Above code is a random output for the player
 
-#look at import random
-
-choice = gets.chomp #local variable
+choice = gets.chomp # local variable
 item = "wire"
 inventory = Array[]
-choice_combo = Array[] #was for possible use
+choice_combo = Array[] # was for possible use
 evil = 0
 
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect', 'steal', 'pinch'].any? { |word| choice.downcase.include?(word.downcase) } && ['key', 'keys'].any? { |word| choice.downcase.include?(word) }# => true
@@ -737,14 +728,14 @@ evil = 0
         puts "You don't need to use this anymore"
     end
 
-###////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside'].any? { |word| choice.downcase.include?(word) }# => true
       puts "You look around the cell. The guard is now fast asleep" 
       puts" leaning against the prison cell bars"
     end
 
-#////////////////////////////Piss off the princess////////////////////////////////////////////////////////////////////////
+# ////////////////////////////Piss off the princess////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
@@ -764,13 +755,13 @@ evil = 0
       return 8
     end
 
-#///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
+# ///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'watch'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } 
       puts "The guard is fast asleep. He starts to snore"
     end
 
-#///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
+# ///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw', 'kiss', 'slap'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }
     puts "It would be rude to attack a sleeping man"
@@ -783,7 +774,7 @@ evil = 0
     return 8
     end
 
-#///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
+# ///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
 
     if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
       File.open("./BlockOne/ActOne_walk.txt").each do |line|
@@ -802,12 +793,12 @@ evil = 0
     
 #///////////////////////////Talk with NPC///////////////////////////////////////////////////////////////////////////
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
+    if ['talk', 'chat', 'discussion', 'lecture', 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You talk quietly to the young lady." 
         puts "She points down at the keys that sits on the prison guards hip"
     end
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
+    if ['talk', 'chat', 'discussion', 'lecture', 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
       puts "The guard is fast asleep." 
       puts "It would be silly to wake him up when you have a great chance to escape"
       end
@@ -830,7 +821,7 @@ def winner
   puts a.asciify('To Be Continued...').colorize(:yellow)
 end
 
-#//////////////////////////ending//////////////////////////////////
+# //////////////////////////ending//////////////////////////////////
 
 case result
 when 1
@@ -847,15 +838,15 @@ else
  puts 'incorrect'
 end
 
-#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 # ############################################################################################
 # ############################################################################################
 # def japan
     
-#     #This is the amount of plays you get in each world. Poo gives 5 whereas pee is only 3
+#     # This is the amount of plays you get in each world. Poo gives 5 whereas pee is only 3
 #     # if bdfu_amount == 5
 #     #     turns = 5
 #     # else
