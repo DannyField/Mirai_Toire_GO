@@ -107,7 +107,7 @@ start
 
 def body_function
   
-  sleep(3)
+  sleep(2)
   puts "You have the urge to go to the toilet. What do you do".colorize(:yellow)
   print "> "
   body_function = gets.chomp #local variable
@@ -193,13 +193,11 @@ body_function
 
 File.open("start_p2.txt").each do |line|
     puts line #this is the head spin fainting section
+    sleep(2)
   end
-
-
 
 #possibly put music or a text here
 #music
-
 
 #time_travel(dest)
 
@@ -207,6 +205,7 @@ File.open("start_p2.txt").each do |line|
 #///////////////STORY ONE////////////////////////////////////////////////////////////////////////
 def act_one_block_one
   
+  sleep(5)
   puts "\e[H\e[2J" #this clears the screen
 
   a = Artii::Base.new :font => 'slant'
@@ -253,18 +252,18 @@ item = "wire"
 inventory = Array[]
 choice_combo = Array[]
 evil = 0
-#good = 0
+good = 0
 
 p evil
 p evil.class #shows integer
 
 ####//////////////If the player select to collect the item then they leave this method to start block two
-    if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
+    if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
       # => true
         puts "You have picked up the #{item}"
         inventory.insert(0, item)
         inventory
-        return exit_flag = 1
+        exit_flag = 1
     end
 ###////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -277,20 +276,21 @@ p evil.class #shows integer
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
       puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
-     
+    end
 p evil
 
-    elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 1 # => if looking at girl and evil stat is above 1
-      #evil = evil + 2
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 1 # => if looking at girl and evil stat is above 1
+      evil = evil + 2
       puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
+    end
 
-    elsif ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } #&& evil >= 3 # => if looking at girl and evil stat is above 3
-      #evil = evil + 5  
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 3 # => if looking at girl and evil stat is above 3
+      evil = evil + 5  
       puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
       return exit_flag = 2
     end
 
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }# => true# => true
       File.open("ActOne_attackGuard.txt").each do |line|
@@ -305,15 +305,24 @@ p evil
       return exit_flag = 2
     end
 
+#///////////////////////////////////movement within area/////////////////////////////////////////////////////////////////
+
     if ['sneak','ninja walk', 'skip', 'walk', 'sprint' ,'run'].any? { |word| choice.downcase.include?(word) } # => true
-      File.open("ActOne_walk.txt").each do |line|
+      File.open("./BlockOne/ActOne_walk.txt").each do |line|
         puts line
       end
-    elsif ['climb'].any? { |word| choice.downcase.include?(word) } # => true
+    end
+
+    if ['climb'].any? { |word| choice.downcase.include?(word) } # => true
         puts 'You try to climb the walls, but you fall down on your bum. The guard laughs at you'
-    elsif ['drink'].any? { |word| choice.downcase.include?(word) } # => true
+    end
+
+    if ['drink'].any? { |word| choice.downcase.include?(word) } # => true
         puts 'There is nothing to drink'
+    end
     
+#///////////////////////////Talk with NPC///////////////////////////////////////////////////////////////////////////
+
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You look at the princess and build up the courage to talk to her"
         good = good + 2
@@ -324,10 +333,7 @@ p evil
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
       good = good + 1
       end
-
     end
-  end
-
 end
 
 
@@ -350,11 +356,10 @@ act_one_block_one
 #steal his keys to unlock the door
 
 
-exit_flag = act_one_block_one
+#exit_flag = 
 
-#p inventory
 p "we are out of method"
-p exit_flag
+p exit_flag = 
 
 if exit_flag == 2
   the_end
