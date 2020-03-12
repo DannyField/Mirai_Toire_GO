@@ -1,11 +1,12 @@
 require 'colorize'
 require 'artii'
 require 'faker'
-
-#artii 'Mirai Toire GO'
+require 'my_gemmy'
 
 a = Artii::Base.new :font => 'slant'
 puts a.asciify('Mirai Torie GO').colorize(:yellow)
+
+#p my_gemmy
 
 #/////////////////////MIRAI_TOIRE_GO_v0.0.3/////////////////////////////////////////////////////////////
 #//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -307,7 +308,7 @@ good = 0
         'Do you want me to beat you down?',
         'Do you want my autograph?!',
         'Got something to say?',
-      ].to_a.sample.colorize(:green)
+      ].to_a.sample.colorize(:red)
     end
 
 #///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
@@ -344,7 +345,7 @@ good = 0
     
 #///////////////////////////Talk with NPC//////////////////////////////////////////////////////////////////////////////
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear', 'sweet talk'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
+    if ['talk', 'chat', 'discussion', 'lecture' 'swear', 'sweet talk'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }
         puts "You look at the woman and build up the courage to talk to her."
         puts "She tells you that she is a princess and that you both need to escape."
         good = good + 2
@@ -394,7 +395,7 @@ end
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 result = act_one_block_one
-p result 
+#p result 
 # => 2
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -484,7 +485,7 @@ good = 0
         'Do you want my autograph?!',
         "I'll give you a thumping if you keep staring boy",
         'Got something to say?',
-      ].to_a.sample.colorize(:green)
+      ].to_a.sample.colorize(:red)
     end
 
 #///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
@@ -682,7 +683,7 @@ evil = 0
 end
 
 result = act_one_block_three
-p result 
+# p result 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////BLOCK FOUR///////////////////////////////////////////////////////////////////
@@ -812,7 +813,6 @@ evil = 0
     end
 end
 
-
 result = act_one_block_four
 p result 
 
@@ -833,15 +833,15 @@ end
 
 case result
 when 1
-  return act_one_block_two
+  act_one_block_two
 when 2
-  return act_one_block_three
+  act_one_block_three
 when 3
-  return act_one_block_four
+  act_one_block_four
 when 5
-  return winner
+  winner
 when 8
-  return the_end
+  the_end
 else
  puts 'incorrect'
 end
