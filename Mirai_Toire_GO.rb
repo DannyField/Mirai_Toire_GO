@@ -1,5 +1,5 @@
 require 'colorize'
-require 'csv'
+require 'tty'
 require 'artii'
 require 'faker'
 
@@ -111,14 +111,16 @@ def body_function
   puts "You have the urge to go to the toilet. What do you do".colorize(:yellow)
   print "> "
   body_function = gets.chomp #local variable
-  #moves = 0
+  #moves = 0 #The moves feature was originally used for the amount of moves the user could take during the time travelling adventure. It has been obmitted from this release.
 
-if ['wee', 'pee', 'piss', 'slash', 'tinkle', 'piddle', 'urinate', 'wee-wee', 'pee-pee', '1'].any? { |word| body_function.downcase.include?(word) } # => true
-    puts "You unzip you pants and pee into the bowl. At first it seems awkward, but eventually you manage to do what you need to do"
+  if ['wee', 'pee', 'piss', 'slash', 'tinkle', 'piddle', 'urinate', 'wee-wee', 'pee-pee', '1'].any? { |word| body_function.downcase.include?(word) } # => true
+    puts "You unzip you pants and pee into the bowl." 
+    puts "At first it seems awkward, but eventually you manage to do what you need to do"
     #moves = 3
   
 elsif ['poo', 'poop', 'crap', 'defecation', 'excretion', 'dung', 'discharge', 'shit', 'turd', 'bog', '2', 'log'].any? { |word| body_function.downcase.include?(word) } # => true
-    puts "Dropping your pants you place your bottom on the toilet seat. You drop a bog log into the swimming pool of poop"
+    puts "Dropping your pants you place your bottom on the toilet seat." 
+    puts "You drop a bog log into the swimming pool of poop"
     #moves = 5
   
 elsif ['fart', 'fluff', 'puff', 'let rip'].any? { |word| body_function.downcase.include?(word) } # => true
@@ -264,33 +266,40 @@ good = 0
         inventory
         return 1
     end
-###////////////////////////////////////////////////////////////////////////////////////////////////////////////
+###/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside'].any? { |word| choice.downcase.include?(word) }# => true
-      puts "You look around the cell. You see thick bars preventing you from getting out. A guard stands near by watching you"
+      puts "You look around the cell. You see thick bars preventing you from getting out." 
+      puts "A guard stands near by watching you"
     end
 
-#////////////////////////////Annoy the princess////////////////////
+#////////////////////////////Annoy the princess/////////////////////////////////////////////////////////////////////////
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
+    if ['look', 'glare', 'stare', 'glance'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
-      puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
+      puts "you look at the princess. She is beautful." 
+      puts "But something appears to be different about her."
+      puts "Her ears are shaped like an elf." 
+      puts "She can feel your eyes looking her up and down"
     end
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 2 # => if looking at girl and evil stat is above 1
+    if ['look', 'glare', 'stare', 'glance'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 2 # => if looking at girl and evil stat is above 1
       evil = evil + 2
-      puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
+      puts "you continue to stare at the princess like a creep." 
+      puts "You lick your lips by accident, and your actions doesn't make her feel any better." 
+      puts "I probably wouldn't stare at her any longer" 
     end
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
+    if ['look', 'glare', 'stare' 'glance'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
       evil = evil + 5  
-      puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
+      puts "Angered by your constant staring she calls for the guard to throw you into another cell." 
+      puts "Which he does and thus ending your chance to escape"
       return 8
     end
 
 #///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } 
+    if ['look', 'glare', 'stare' 'glance'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } 
       puts "The guard notices you looking at him."
       puts "He snots:"
       puts [
@@ -327,7 +336,8 @@ good = 0
     end
 
     if ['climb'].any? { |word| choice.downcase.include?(word) } # => true
-        puts 'You try to climb the walls, but you fall down on your bum. The guard laughs at you'
+        puts "You try to climb the walls, but you fall down on your bum." 
+        puts "The guard laughs at you"
     end
 
     if ['drink'].any? { |word| choice.downcase.include?(word) } # => true
@@ -336,15 +346,16 @@ good = 0
     
 #///////////////////////////Talk with NPC//////////////////////////////////////////////////////////////////////////////
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
+    if ['talk', 'chat', 'discussion', 'lecture' 'swear', 'sweet talk'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You look at the woman and build up the courage to talk to her."
-        puts "She tells you that she is a princess."
+        puts "She tells you that she is a princess and that you both need to escape."
         good = good + 2
     end
 
-    if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
-      puts "You walk over to the bars and ask the guard for his name."
+    if ['talk', 'chat', 'discussion', 'lecture' 'swear', 'sweet talk'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
+      puts "You walk over to the prison bars and ask the guard for his name."
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
+      puts "With nothing else to say, you go back to your corner"
       good = good + 1
       end
     end
@@ -354,8 +365,11 @@ end
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 def the_end
-  puts "this is the end of the game"
-  puts "would you like play again?"
+  a = Artii::Base.new :font => 'slant'
+  puts a.asciify('GAME OVER').colorize(:red)
+  
+  puts "THIS IS THE END OF THE GAME".colorize.(:red)
+  puts "WOULD YOU LIKE TO PLAY AGAIN?".colorize.(:red)
   
   puts "Y yes | N no"
   
@@ -375,9 +389,11 @@ def the_end
       puts "Just kidding... Have a good day"
       return
     else
-      puts "Sorry, incorrect letter"
+      puts "Sorry, incorrect letter. Try again"
+      return
     end
 end
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 result = act_one_block_one
 p result 
@@ -393,7 +409,7 @@ def act_one_block_two
   exit_flag = 0
   while exit_flag == 0
   puts 'You have collected the wire. But you are still in the prison cell'.colorize(:yellow)
-puts [
+  puts [
   'What would you like to do', 
   'Give it another go champ',
   'What will you do?', 
