@@ -205,7 +205,7 @@ File.open("start_p2.txt").each do |line|
 #///////////////STORY ONE////////////////////////////////////////////////////////////////////////
 def act_one_block_one
   
-  sleep(5)
+  sleep(3)
   puts "\e[H\e[2J" #this clears the screen
 
   a = Artii::Base.new :font => 'slant'
@@ -255,11 +255,11 @@ evil = 0
 good = 0
 
 #/////////////the evil class
-p " The evil class is currently #{evil}"
-p evil.class #shows integer
+p "The evil class is currently #{evil}"
+
 #////////////////the evil class
 
-####//////////////If the player select to collect the item then they leave this method to start block two
+####//////////////If the player select to collect the item then they leave this method to start block two/////////////////
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
       # => true
         puts "You have picked up the #{item}"
@@ -269,7 +269,7 @@ p evil.class #shows integer
     end
 ###////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell'].any? { |word| choice.downcase.include?(word) }# => true
+    if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside'].any? { |word| choice.downcase.include?(word) }# => true
       puts "You look around the cell. You see thick bars preventing you from getting out. A guard stands near by watching you"
     end
 
@@ -279,7 +279,6 @@ p evil.class #shows integer
       evil = evil + 1  
       puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
     end
-p evil
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 2 # => if looking at girl and evil stat is above 1
       evil = evil + 2
@@ -290,6 +289,22 @@ p evil
       evil = evil + 5  
       puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
       return 2
+    end
+
+#///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
+
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
+      evil = evil + 5  
+      puts "The guard notices you looking at him."
+      puts "He snots:"
+      puts [
+        'What are ya looking at ye scum?', 
+        'Quit looking at me',
+        'What are you looking at?', 
+        'Do you want me to beat you down?',
+        'Do you want my autograph?!',
+        'Got something to say?',
+      ].to_a.sample.colorize(:green)
     end
 
 #///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
@@ -343,7 +358,16 @@ result = act_one_block_one
 p result 
 # => 2
 
-#////////////////Once block one condition is satified, the player will get to block two
+
+#//////////////////exit block
+#wire = nil
+#
+
+
+
+#///////////////////////
+
+#////////////////Block TWO//////////////////
 
 #block two is doing something with the wire
 #use wire on necklance to dangle in front of guard
