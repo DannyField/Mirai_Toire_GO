@@ -434,8 +434,8 @@ choice_combo = Array[] #was for possible use
 evil = 0
 good = 0
 
-#/////////////the evil class
-p "The evil class is currently #{evil}"
+#/////////////the evil class - checking whether it works
+# p "The evil class is currently #{evil}"
 
 ####//////////////the player can try to use this on the world/////////////////
     if ['use', 'prod', 'stick',].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
@@ -445,24 +445,31 @@ p "The evil class is currently #{evil}"
 ###////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['look', 'glare', 'stare', 'examine', 'peak'].any? { |word| choice.downcase.include?(word) } && ['room', 'cell', 'around', 'outside'].any? { |word| choice.downcase.include?(word) }# => true
-      puts "You look around the cell. You see thick bars preventing you from getting out. A guard stands near by watching you"
+      puts "You look around the cell. You see thick bars preventing you from getting out."
+      puts "A guard stands near by watching you. You put the wire behind your back"
     end
 
 #////////////////////////////Annoy the princess////////////////////
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true
       evil = evil + 1  
-      puts "you look at the princess. She is beautful. But something appears to be different about her. Her ears are shaped like an elf. She can feel your eyes looking her up and down"
+      puts "You look at the princess. She is beautful." 
+      puts "But something appears to be different about her." 
+      puts "Her ears are shaped like an elf."
+      puts "She sticks her tongue out at you"
     end
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 2 # => if looking at girl and evil stat is above 1
       evil = evil + 2
-      puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
+      puts "You continue to stare at the princess like a dirty old man." 
+      puts "You lick your lips by accident, and it doesn't go well for you."
+      puts "In fact it creeps her out even more!"
     end
 
     if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
       evil = evil + 5  
-      puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
+      puts "Angered by your constant staring she calls for the guard to throw you into another cell." 
+      puts "Which he does and thus ending your chance to escape"
       return 8
     end
 
@@ -477,6 +484,7 @@ p "The evil class is currently #{evil}"
         'What are you looking at?', 
         'Do you want me to beat you down?',
         'Do you want my autograph?!',
+        "I'll give you a thumping if you keep staring boy",
         'Got something to say?',
       ].to_a.sample.colorize(:green)
     end
@@ -512,7 +520,8 @@ p "The evil class is currently #{evil}"
         puts 'There is nothing to drink.'
     end
     
-#///////////////////////////Talk with NPC///////////////////////////////////////////////////////////////////////////
+#///////////////////////////Talk with NPC/////////////////////////////////////////////////////////////////////////////
+#////////////////////////Below code will throw out of the block to the next//////////////////////////////////////////
 
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word.downcase) } && ['girl', 'sexy', 'princess', 'chick', 'woman'].any? { |word| choice.downcase.include?(word) }# => true# => true
         puts "You look at the princess and build up the courage to talk to her. She seems friendly"
@@ -522,9 +531,11 @@ p "The evil class is currently #{evil}"
         puts "You have a " + 'necklace'.colorize(:green)
         return 2
     end
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if ['talk', 'chat', 'discussion', 'lecture' 'swear'].any? { |word| choice.downcase.include?(word)} && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word)}# => true
-      puts "You walk over to the bars and ask the guard for his name."
+      puts "You ask the guard for his name."
       puts "The guard replies that his name is " + Faker::FunnyName.two_word_name
       good = good + 1
       end
@@ -532,7 +543,7 @@ p "The evil class is currently #{evil}"
 end
 
 result = act_one_block_two
-p result 
+#p result error checking
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////BLOCK THREE//////////////////////////////////////////////////////////////////
