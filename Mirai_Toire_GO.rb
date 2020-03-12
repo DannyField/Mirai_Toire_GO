@@ -293,8 +293,7 @@ p "The evil class is currently #{evil}"
 
 #///////////////////////////////Look at guard//////////////////////////////////////////////////////////////////////
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
-      evil = evil + 5  
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) } # => if looking at girl and evil stat is above  
       puts "The guard notices you looking at him."
       puts "He snots:"
       puts [
@@ -353,10 +352,43 @@ p "The evil class is currently #{evil}"
     end
 end
 
+#//////////////////////////ending//////////////////////////////////
+
+def the_end
+  puts "this is the end of the game"
+  puts "would you like play again?"
+  
+  puts "Y yes | N no"
+  
+  input = gets.chomp
+    
+    if input == "y" | "Y"
+      start
+    elsif input == "n" | "N"
+      puts "Ok, formating laptop.."
+      sleep(1)
+      puts "."
+      sleep(1)
+      puts ".."
+      sleep(1)
+      puts "..."
+      sleep(1)
+      puts "Just kidding... Have a good day"
+      return
+    else
+      puts "Sorry, incorrect letter"
+    end
+  end
 
 result = act_one_block_one
 p result 
 # => 2
+
+if result == 2
+  the_end
+else
+  return
+end
 
 
 #//////////////////exit block
@@ -386,45 +418,13 @@ p result
 
 #exit_flag = 
 
-p "we are out of method"
-p exit_flag = 
-
-if exit_flag == 2
-  the_end
-else
-  return
-end
 
 
 
 
-#//////////////////////////ending//////////////////////////////////
 
-def the_end
-puts "this is the end of the game"
-puts "would you like play again?"
 
-puts "Y yes | N no"
 
-input = gets.chomp
-  
-  if input == "y" | "Y"
-    start
-  elsif input == "n" | "N"
-    puts "Ok, formating laptop.."
-    sleep(1)
-    puts "."
-    sleep(1)
-    puts ".."
-    sleep(1)
-    puts "..."
-    sleep(1)
-    puts "Just kidding... Have a good day"
-    return
-  else
-    puts "Sorry, incorrect letter"
-  end
-end
 
 
 
