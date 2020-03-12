@@ -254,8 +254,10 @@ choice_combo = Array[]
 evil = 0
 good = 0
 
-p evil
+#/////////////the evil class
+p " The evil class is currently #{evil}"
 p evil.class #shows integer
+#////////////////the evil class
 
 ####//////////////If the player select to collect the item then they leave this method to start block two
     if ['pick', 'take', 'grab', 'grasp' 'nab' 'hand', 'collect'].any? { |word| choice.downcase.include?(word.downcase) } && ['wire', 'small wire'].any? { |word| choice.downcase.include?(word) }
@@ -279,27 +281,27 @@ p evil.class #shows integer
     end
 p evil
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 1 # => if looking at girl and evil stat is above 1
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil == 2 # => if looking at girl and evil stat is above 1
       evil = evil + 2
       puts "you continue to stare at the princess like a creep. You lick your lips by accident, and the remake doesn't make her feel any better. I probably wouldn't stare at any longer" 
     end
 
-    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 3 # => if looking at girl and evil stat is above 3
+    if ['look', 'glare', 'stare'].any? { |word| choice.downcase.include?(word) } && ['girl', 'sexy', 'princess', 'chick'].any? { |word| choice.downcase.include?(word) } && evil >= 4 # => if looking at girl and evil stat is above 3
       evil = evil + 5  
       puts "Angered by your constant staring she calls for the guard to throw you into another cell. Which he does and thus ending your chance to escape"
-      return exit_flag = 2
+      return 2
     end
 
 #///////////////////////////////////ATTACK THE NPC///////////////////////////////////////////////////////////////////
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['guard', 'dude', 'gate keeper', 'door man', 'man'].any? { |word| choice.downcase.include?(word) }# => true# => true
-      File.open("ActOne_attackGuard.txt").each do |line|
+      File.open("./BlockOne/ActOne_attackGuard.txt").each do |line|
         puts line
       end
     end
 
     if ['punch', 'karate chop', 'kick', 'fight', 'beat', 'attack', 'throw wire'].any? { |word| choice.downcase.include?(word) } && ['girl', 'woman', 'princess', 'chick', 'female'].any? { |word| choice.downcase.include?(word) }# => true# => true
-      File.open("ActOne_attackPrincess.txt").each do |line|
+      File.open("./BlockOne/ActOne_attackPrincess.txt").each do |line|
         puts line
       end
       return exit_flag = 2
@@ -337,7 +339,9 @@ p evil
 end
 
 
-act_one_block_one
+result = act_one_block_one
+p result 
+# => 2
 
 #////////////////Once block one condition is satified, the player will get to block two
 
