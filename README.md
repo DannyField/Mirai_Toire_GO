@@ -1,4 +1,6 @@
-R4	Provide a link to your source control repository
+
+
+### H3 R4	Provide a link to your source control repository
 
 Mirai Toire GO is located at the following:
 
@@ -7,8 +9,6 @@ https://github.com/DannyField/Mirai_Toire_GO
 Or directly download the GIT file
 
 https://github.com/DannyField/Mirai_Toire_GO.git
-
-
 
 
 Develop a statement of purpose and scope for your application. It must include:

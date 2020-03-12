@@ -806,7 +806,7 @@ evil = 0
 end
 
 result = act_one_block_four
-p result 
+#p result 
 
 def winner
   puts "You and the princess escape quietly through the prison cell"
