@@ -1,8 +1,8 @@
+### Morai Toire GO
 
+## Link to Github source control repository
 
-### H3 R4	Provide a link to your source control repository
-
-Mirai Toire GO is located at the following:
+The GitHub for Mirai Toire GO is located at the following:
 
 https://github.com/DannyField/Mirai_Toire_GO
 
@@ -10,62 +10,91 @@ Or directly download the GIT file
 
 https://github.com/DannyField/Mirai_Toire_GO.git
 
+## Statement of purpose and scope of application.
 
-Develop a statement of purpose and scope for your application. It must include:
-- describe at a high level what the application will do
-- identify the problem it will solve and explain why you are developing it
-- identify the target audience
-- explain how a member of the target audience will use it
+Have you ever played an old school adventure game for it to break the illusion when it states that it doesn’t understand a user entered command? 
 
-The 
+Old text based adventure games had limited memory, so had limitation of what commands they could store. I set out to create an text based adventure game that would hopefully give you full control over what you truely desired. The concept was that, if you could do anything, what would you do. More to the point, the player could travel to any place and any time. You could go to West Germany during World War 2 and assassinate Hilter. You could do it. Go jam with the Beatles or Jimi Hendrix? Go do it. 
 
-statment of purpose
+However, this complete freedom would mean an infitite array of possibilities. Even with the 'slight of hand' storylines path within the game to coerce the player, it was a massive undertaking. In the end, I had to submit a short based adventure game with a single story. The game would ask the user for what they wanted to do in the game. But with the ability to type what you wanted to.
 
-Have you ever played an old school adventure game for it to break the illusion when it states that it doesn’t understand a command. 
+i.e. *'punch guard in the face with your fist'*
 
-Adventure games 
+The above input would show the correct reply. As long as a form of *'attacking'* is used and *'guard'* is included, the output should be correct. Future revisions would allow for more control on small details.
 
-I had set out to create an experience that would hopefully give you full control over what you truely desire. The concept was that if you could do anything that you wanted to do. Go to West Germany during World War 2 to assiante Hilter. You could do it. Go jam with the Beatles or Jimi Hendrix? Go do it. 
+The problem it will solve is hopefully bordem. I'll attempt to hopefully bring a smile to the face of the user. Looking back I wished I had designed an app that would change the world. The goal is to make people laugh and smile, while allowing them to use their brain to figure out how to get out of the prison cell.
 
-However, this complete freedom would mean that an infitite array of possibilities. Even with a slight degree of game play manlipulation; such as coarsing the player with carefully suggestied ideas.
+The target audience is for people that love old school text based adventure games. Based on 'tongue in cheek' comical and fantasy based adventure games. 
 
-In the end, I had to submit like some before me
+By entering in commands into the prompt, the user will possibly get some wild responses back. A limited vision of a controlled A.I. with some random replies back.
 
-Peter Monize -Fable
-No Man's Sky
-That little fish n chip shop in Sydney that is meant to be the best
+## Feature list included in application
 
-I had to change ideas slightly. Some of the original code still exists as a precursor to a future project
+# If statements / loops / conditions
 
-Much like adventure games, this game will still hopefully give you choices. It's more a test on what the player may type.
+Most of the heavy lifting is done with 'if' conditions. When the user enters a statement it will check whether the word matches in the array. The 'downcase' function would allow the user to enter both uppercase and lowercase and the condition will still be true. Another example is the stat system. When the player enters certain commands more than once, good or bad stats can add up and have some positive or negative results. I treated the level in blocks, where the user would need to get out each block [a loop] to progress via an 'Exit_flag'. 
 
+![if conditions](./docs/Anger.png)
 
-The problem it will solve is hopefully bordem, and hopefully bring a smile to the face of the user. Looking back I wished I had designed an app that would change the world, but instead, maybe bringing a smile to the face or something, along with a semi-soft challenging puzzle on how to get out of a room.
+# Random output / input
+The user input would go into a string and then check among an array. If the correct keyword was checked with the user input then the condition was met. This also meant trying to guess what people would type. Some of the code features random features such as dialogue. An example is when the user is trying to get their way out of the prison cell, the prompt changes with terms of encouragement.
 
+![Random output input](./docs/random_speech.png)
 
+# Importing text and the use of gems
+Importing of files can make a program shine. To save time writing out lines of code, I was able to import CSV and Text files. Importing text documents saved by keeping the code cleaner, instead having many lines of extra code. It would also help with creating ascii art by having it stored in a text document. The use of gems also helped great unique outputs in the form of 'colorize' and 'faker'. Faker allowed for having mutliple names for the guard.
 
-The problem lies with the sheer scope of it
+![Gems](./docs/Faker.png)
 
+## User interaction and experience for the application.
 
-Not only being able to decide on what you want to say,
+The user will be prompted on what they want to do. They will be able to input commands and get a response. Error checking was done manually by entering in user commands to see what resposes were returned.
+ 
+![Error Checking Spreadsheet](./docs/MiraiTorie_Error.png)
 
-The story involves you waking up in a white room. The only thing there is an old toilet. Cables and wires come out from the porcal throne. What you won't know until you sit on it, is that the toilet is a time machine
+##	Develop a diagram which describes the control flow of your application. Your diagram must:
+The flow chart shows a block system. Once the user enters a block, then need to enter the correct command to progress further. Much like any other adventure game, but due to being in a small confined space, the options may be more limited. Some options have further pathways, and it's something that I would like to explore more in future revisions.
 
-the problem will solve boredom and hopefully make people laugh. Deep down, this idea is more of a test on human condition. For instance, giving people the option to do what they want will be an interesting concept. Most games will have restrictions on what you can do, whereas here, I will attempt to give feedom to the choices that people will make.
+![UML](./docs/Mirai_Torie_GO_UML.png)
 
-The test for human condition is interesting and may allow people to do stuff that would only be performed in the deep areas of the psyche. Let me give you an example
+## Implementation plan:
+Trello was used for the process. 
 
-Let say you go back to Germany during World War 2. If given the choice, would you kill Hilter, or maybe you would try to kiss Hilter. While this option seems like a no brainer, this game may hopefully give you a 'what if' situation
+![Trello](./docs/Trello.png)
 
-the target audience is for people that love old school adventure games, or that are interested in history or how screwing up the past can have drastic effects on the present
+## Future plans:
+Next revision will include bug fixes. Making the stat system more stronger and accessiable across the whole program (Aug 2020)
 
----------------------
+Complete current story path and fill with more commands that the user may enter (Aug 2020)
 
+Utilize the original Japanese story (contained in the src code 0.01) and adapt to this adventure. The idea was always about bringing items back from the past or future and being able to use them in other times. (Oct 2020)
 
+A major feature that I would love to do is bring back the whole time travel aspect. Utilizing an online medium such as retrieving information from the internet would be great. The original CSV file that is included contains countires and places that the player could go to. (Mid 2021)
 
+The final release would be the whole the basis of the time travelling feature. Including the ability to give players stories that they can jump to. Restricting some time lines in the early release and pushing to future versions of the game. (Mid 2021)
 
+Complete with all time paths - Mid 2024 or later!
 
+## How to run / install
 
-If you want to embed images, this is how you do it:
+Mirai Toire GO is to be ran in the terminal. Download download from the github
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+```
+git clone https://github.com/DannyField/Mirai_Toire_GO.git
+```
+
+You will also need the following gems
+
+```
+gem install faker
+gem install colorize
+gem install my_gemmy
+gem install artii
+```
+
+You must have ruby 2.7.0 installed. To run Mirai Toire GO open up a terminal and enter the command.
+
+```
+ruby Mirai_Toire_GO.rb
+```
+
